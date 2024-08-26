@@ -1,5 +1,23 @@
 [
   {
+    "name": "Fifty Fifty",
+    "padding": 10,
+    "zones": [
+      {
+        "x": 0,
+        "y": 0,
+        "height": 100,
+        "width": 50
+      },
+      {
+        "x": 50,
+        "y": 0,
+        "height": 100,
+        "width": 50
+      }
+    ]
+  },
+  {
     "name": "F Grid",
     "padding": 10,
     "zones": [
