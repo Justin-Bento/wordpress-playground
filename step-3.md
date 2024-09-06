@@ -1,6 +1,6 @@
 # Setting Up Linux For Website Development 
 
-After finishing installing the necessary packages and depenancies from the post install script, this guide will teach you how to setup a minimal development enviroement with Fedora Linux.
+After finishing installing the necessary pack~/.asdf/shims/rubyages and depenancies from the post install script, this guide will teach you how to setup a minimal development enviroement with Fedora Linux.
 
 
 ## Creating a Development Folder
@@ -58,7 +58,7 @@ Now, you need to tell GitHub what your SSH key is so that you can push your code
 
 First, you’ll navigate to where GitHub receives our SSH key. Log into GitHub and click on your profile picture in the top right corner. Then, click on Settings in the drop-down menu.
 
-Next, on the left-hand side, click SSH and GPG keys. Then, click the green button in the top right corner that says New SSH Key. Name your key something that is descriptive enough for you to remember what device this SSH key came from, for example linux-ubuntu. Leave this window open while you do the next steps.
+Next, on th~/.asdf/shims/rubye left-hand side, click SSH and GPG keys. Then, click the green button in the top right corner that says New SSH Key. Name your key something that is descriptive enough for you to remember what device this SSH key came from, for example linux-ubuntu. Leave this window open while you do the next steps.
 
 Now you need to copy your public SSH key. To do this, we’re going to use a command called cat to read the file to the console. (Note that the .pub file extension is important in this case.)
 ```
@@ -149,8 +149,18 @@ $ which ruby
 # output - ~/.asdf/shims/ruby
 ````
 
-**Setp 5 - Installing a version of the tool/runtime**
-**Setp 6 - Setting global and project versions via .tool-versions config files**
+## Visual Studio Code on Linux 
 
+**Step 1 - Installing Visual Studio Code Package on Linux From Microsoft**
 
+Head over the visual studo code website https://code.visualstudio.com/ RHEL, Fedora, and CentOS based distributions. The script below ships the stable 64-bit VS Code in a yum or dnf repository, the following script will install the key and repository:
+```
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+```
+Then update the package cache and install the package using dnf (Fedora 22 and above):
+```
+sudo dnf check-update
+sudo dnf install code # or code-insiders
+```
 
