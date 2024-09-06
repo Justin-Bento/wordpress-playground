@@ -75,3 +75,82 @@ Follow the GitHub directions for testing your SSH connection. Make sure the fing
 You should see this response in your terminal: Hi username! You’ve successfully authenticated, but GitHub does not provide shell access. Don’t let GitHub’s lack of providing shell access trouble you. If you see this message, you’ve successfully added your SSH key and you can move on. If the output doesn’t correctly match up, then try going through these steps again or come to the Discord chat to ask for help.
 
 > Resource https://www.theodinproject.com/lessons/foundations-setting-up-git
+
+## Getting Started with asdf
+
+**Setp 1 - Installing dependencies**
+asdf primarily requires git & curl. Here is a non-exhaustive list of commands to run for your package manager (some might automatically install these tools in later steps).
+```
+sudo dnf install -y  curl
+```
+
+**Setp 2 - Downloading asdf Offical download**
+```
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
+```
+**Setp 3 - Installing asdf**
+
+There are many different combinations of Shells, OSs & Installation methods all of which affect the configuration here. Expand the selection below that best matches your system.
+
+Bash & Git
+
+Add the following to ~/.bashrc:
+```
+. "$HOME/.asdf/asdf.sh"
+```
+Completions must be configured by adding the following to your .bashrc:
+```
+. "$HOME/.asdf/completions/asdf.bash"
+```
+
+Restart your shell so that PATH changes take effect. Opening a new terminal tab will usually do it.
+
+**Setp 4 - Installing a plugin for each tool/runtime you wish to manage**
+
+Each plugin has dependencies so we need to check the plugin repo where they should be listed. For asdf-nodejs they are:
+
+**Setup 4.1 - Nodejs**
+
+A Now we have a plugin for Node.js we can install a version of the tool.We can see which versions are available with asdf list all nodejs or a subset of versions with asdf list all nodejs 14. We will just install the latest available version:
+````
+Plugin `asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git`
+````
+Now we have a plugin for Node.js we can install a version of the tool.
+````
+asdf install nodejs latest
+````
+Global defaults are managed in $HOME/.tool-versions. Set a global version with:
+````
+asdf global nodejs latest
+````
+
+**Setup 4.2 - Ruby**
+Install plugins for fedora rub: 
+````
+sudo dnf install git zlib-devel make gcc openssl-devel readline-devel libyaml-devel sqlite-devel libxml2-devel libxslt-devel libcurl-devel libffi-devel
+````
+A Now we have the dependencies for Ruby we can install a version of the tool. We can see which versions are available with asdf list all nodejs or a subset of versions with asdf list all Ruby versions. We will just install the latest available version:
+````
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git````
+````
+Now we have a plugin for Node.js we can install a version of the tool.
+````
+asdf install ruby latest
+````
+Global defaults are managed in $HOME/.tool-versions. Set a global version with:
+````
+asdf global ruby latest
+````
+ensure your system is running node js and ruby from asdf install 
+````
+$ which node
+# output - ~/.asdf/shims/node
+$ which ruby
+# output - ~/.asdf/shims/ruby
+````
+
+**Setp 5 - Installing a version of the tool/runtime**
+**Setp 6 - Setting global and project versions via .tool-versions config files**
+
+
+
